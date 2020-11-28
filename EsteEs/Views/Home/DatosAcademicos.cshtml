@@ -18,8 +18,8 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<form method="post" asp-action="Index4">
-    <input value="@integrante_id" asp-for="IdIntegrante" />
+<form method="post" asp-action="DatosAcademicos">
+    <input hidden value="@integrante_id" asp-for="IdIntegrante" />
     <select asp-for="NivelEstudio">
         <option value="Primaria">Primaria</option>
         <option value="Secundaria">Secundaria</option>

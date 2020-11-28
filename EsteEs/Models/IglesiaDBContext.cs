@@ -355,6 +355,8 @@ namespace EsteEs.Models
                     .HasColumnName("fecha_nacimiento")
                     .HasColumnType("datetime");
 
+                entity.Property(e => e.Imagen).HasColumnType("text");
+
                 entity.Property(e => e.Nombres)
                     .HasColumnName("nombres")
                     .HasMaxLength(100)

@@ -28,6 +28,7 @@ namespace EsteEs.Models
         public string DocIdentidad { get; set; }
         public string PaisNacimiento { get; set; }
         public string CiudadResidencia { get; set; }
+        public string Imagen { get; set; }
 
         public virtual ICollection<DatosAcademicos> DatosAcademicos { get; set; }
         public virtual ICollection<DatosEclesiasticos> DatosEclesiasticos { get; set; }

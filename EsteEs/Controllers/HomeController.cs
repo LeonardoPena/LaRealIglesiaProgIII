@@ -8,6 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EsteEs.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+
 namespace EsteEs.Controllers
 {
     public class HomeController : Controller
@@ -15,39 +19,48 @@ namespace EsteEs.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IglesiaDBContext dbcontext;
         private readonly IMapper mapeador;
-        public HomeController(IglesiaDBContext db, ILogger<HomeController> logger, IMapper mapa)
+        private readonly IHostingEnvironment hosting;
+        public HomeController(IglesiaDBContext db, ILogger<HomeController> logger, IMapper mapa, IHostingEnvironment jost)
         {
             _logger = logger;
             dbcontext = db;
             mapeador = mapa;
+            hosting=jost;
         }
 
 
 
         // GET: HomeController1
-        public ActionResult Index()
+        public ActionResult DatosPersonales()
         {
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult>  Index(Integrantes inte)
+        public async Task<ActionResult> DatosPersonales(Integrantes inte, IFormFile imagen)
         {
+            string Subir = Path.Combine(hosting.WebRootPath, "images");
+            string FileName = Guid.NewGuid().ToString() + "_" + imagen.FileName;
+            string FilePath = Path.Combine(Subir, FileName);
+            imagen.CopyTo(new FileStream(FilePath, FileMode.Create));
 
-        await dbcontext.Integrantes.AddAsync(inte);
-            
+            inte.Imagen = "images/"+FileName;
+
+
+           await dbcontext.Integrantes.AddAsync(inte);
+           
            await dbcontext.SaveChangesAsync();
             
             DatosFamiliares DataF = new DatosFamiliares();
             DataF.IdIntegrante = inte.Id;
-            return RedirectToAction("Index1","Home", DataF);
+            return RedirectToAction("DatosFamiliares", "Home", DataF);
         }
-        public ActionResult Index1(DatosFamiliares Data)
+        public ActionResult DatosFamiliares(DatosFamiliares Data)
         {
             ViewBag.id_integrante = Data.IdIntegrante;
             return View();
         }
         [HttpPost]
-        public ActionResult Index1(int ide, DatosFamiliares DatoFam)
+        public ActionResult DatosFamiliares(int ide, DatosFamiliares DatoFam)
         {
            
             dbcontext.DatosFamiliares.Add(DatoFam);
@@ -55,17 +68,17 @@ namespace EsteEs.Controllers
 
             DatosLaborales DatoLab = new DatosLaborales();
             DatoLab.IdIntegrante = DatoFam.IdIntegrante;
-            return RedirectToAction("Index2", "Home", DatoLab);
+            return RedirectToAction("DatosLaborales", "Home", DatoLab);
         }
 
 
-        public ActionResult Index2(DatosLaborales Data)
+        public ActionResult DatosLaborales(DatosLaborales Data)
         {
             ViewBag.id_integrante = Data.IdIntegrante;
             return View();
         }
         [HttpPost]
-        public ActionResult Index2(int ide, DatosLaborales DatoLab)
+        public ActionResult DatosLaborales(int ide, DatosLaborales DatoLab)
         {
             
             dbcontext.DatosLaborales.Add(DatoLab);
@@ -73,39 +86,39 @@ namespace EsteEs.Controllers
 
             DatosEclesiasticos DatoEcl = new DatosEclesiasticos();
             DatoEcl.IdIntegrante = DatoLab.IdIntegrante;
-            return RedirectToAction("Index3", "Home", DatoEcl);
+            return RedirectToAction("DatosEclesiasticos", "Home", DatoEcl);
         }
 
 
-        public ActionResult Index3(DatosEclesiasticos Data)
+        public ActionResult DatosEclesiasticos(DatosEclesiasticos Data)
         {
             ViewBag.id_integrante = Data.IdIntegrante;
             return View();
         }
         [HttpPost]
-        public ActionResult Index3(int ide, DatosEclesiasticos DatoEcl)
+        public ActionResult DatosEclesiasticos(int ide, DatosEclesiasticos DatoEcl)
         {
 
             dbcontext.DatosEclesiasticos.Add(DatoEcl);
             dbcontext.SaveChanges();
             DatosAcademicos DatoAc = new DatosAcademicos();
             DatoAc.IdIntegrante = DatoEcl.IdIntegrante;
-            return RedirectToAction("Index4","Home", DatoAc);
+            return RedirectToAction("DatosAcademicos", "Home", DatoAc);
         }
 
 
-        public ActionResult Index4(DatosAcademicos Data)
+        public ActionResult DatosAcademicos(DatosAcademicos Data)
         {
             ViewBag.id_integrante = Data.IdIntegrante;
             return View();
         }
         [HttpPost]
-        public ActionResult Index4(int ide, DatosAcademicos datoAc)
+        public ActionResult DatosAcademicos(int ide, DatosAcademicos datoAc)
         {
 
             dbcontext.DatosAcademicos.Add(datoAc);
             dbcontext.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Lista");
         }
         public ActionResult Lista()
         {
@@ -148,11 +161,7 @@ namespace EsteEs.Controllers
             return RedirectToAction("Lista");
         }
 
-        public ActionResult Editar()
-        {
-           
-            return View();
-        }
+        
         public IActionResult Privacy()
         {
             return View();
@@ -164,107 +173,7 @@ namespace EsteEs.Controllers
 
 
 
-        public ActionResult EditPersonal(int id)
-        {
-            var integr=dbcontext.Integrantes.Find(id);
-            return View(integr);
-        }
-        [HttpPost]
-        public async Task<ActionResult> EditPersonal(Integrantes inte)
-        {
-
-            dbcontext.Integrantes.Update(inte);
-
-            await dbcontext.SaveChangesAsync();
-
-            return RedirectToAction("Lista");
-        }
-        public ActionResult EditFam(DatosFamiliares Data)
-        {
-            ViewBag.id_integrante = Data.IdIntegrante;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult EditFam(int ide, DatosFamiliares DatoFam)
-        {
-
-            dbcontext.DatosFamiliares.Add(DatoFam);
-            dbcontext.SaveChanges();
-
-            DatosLaborales DatoLab = new DatosLaborales();
-            DatoLab.IdIntegrante = DatoFam.IdIntegrante;
-            return RedirectToAction("Index2", "Home", DatoLab);
-        }
-
-
-        public ActionResult EditLab(DatosLaborales Data)
-        {
-            ViewBag.id_integrante = Data.IdIntegrante;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult EditLab(int ide, DatosLaborales DatoLab)
-        {
-
-            dbcontext.DatosLaborales.Add(DatoLab);
-            dbcontext.SaveChanges();
-
-            DatosEclesiasticos DatoEcl = new DatosEclesiasticos();
-            DatoEcl.IdIntegrante = DatoLab.IdIntegrante;
-            return RedirectToAction("Index3", "Home", DatoEcl);
-        }
-
-
-        public ActionResult EditEcl(DatosEclesiasticos Data)
-        {
-            ViewBag.id_integrante = Data.IdIntegrante;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult EditEcl(int ide, DatosEclesiasticos DatoEcl)
-        {
-
-            dbcontext.DatosEclesiasticos.Add(DatoEcl);
-            dbcontext.SaveChanges();
-            DatosAcademicos DatoAc = new DatosAcademicos();
-            DatoAc.IdIntegrante = DatoEcl.IdIntegrante;
-            return RedirectToAction("Index4", "Home", DatoAc);
-        }
-
-
-        public ActionResult EditAcad(DatosAcademicos Data)
-        {
-            ViewBag.id_integrante = Data.IdIntegrante;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult EditAcad(int ide, DatosAcademicos datoAc)
-        {
-
-            dbcontext.DatosAcademicos.Add(datoAc);
-            dbcontext.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 

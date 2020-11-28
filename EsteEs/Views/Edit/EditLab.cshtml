@@ -1,7 +1,7 @@
 ﻿@model EsteEs.Models.DatosLaborales
 @{
     ViewData["Title"] = "Home Page";
-    int? integrante_id = ViewBag.id_integrante;
+    
 }
 <head>
     <!-- Required meta tags -->
@@ -21,29 +21,30 @@
 
 
 
-<form method="post" asp-action="Index2">
-    <input value="@integrante_id" asp-for="IdIntegrante" />
+<form method="post" asp-action="EditLab">
+    <input value="@Model.Id" asp-for="Id" />
+    <input asp-for="IdIntegrante" />
     <div class="form-group">
-        <label for="exampleInputEmail1">Nombres</label>
-        <input asp-for="Profesion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <label for="exampleInputEmail1">Profesion</label>
+        <input asp-for="Profesion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Profesion">
 
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Nombres</label>
-        <input asp-for="NombreEmpresa" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <label for="exampleInputEmail1">Nombre de la empresa</label>
+        <input asp-for="NombreEmpresa" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre de la empresa">
 
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Nombres</label>
-        <input asp-for="Ocupacion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <label for="exampleInputEmail1">Ocupacion en la empresa</label>
+        <input asp-for="Ocupacion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ocupacion">
 
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Nombres</label>
+        <label for="exampleInputEmail1">Telefono de la Empresa</label>
         <input asp-for="Telefono" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
 
     </div>
 
-    <a asp-controller="Home" asp-action="Index3"><input type="submit" class="btn btn-primary" value="Continuar"></a>
+    <input type="submit" class="btn btn-primary" value="Continuar">
 
 </form>

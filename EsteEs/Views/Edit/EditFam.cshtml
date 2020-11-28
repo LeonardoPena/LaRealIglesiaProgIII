@@ -1,0 +1,54 @@
+﻿@model EsteEs.Models.DatosFamiliares
+@{ ViewData["Title"] = "Home Page";
+    
+
+}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<form method="post" asp-action="EditFam">
+    <input value="@Model.Id" asp-for="Id"/>
+    <input asp-for="IdIntegrante" />
+    <label for="exampleInputEmail1">Estado Civil</label>
+    <select asp-for="EstadoCivil">
+        <option value="Soltero/a">Soltero/a</option>
+        <option value="Casado/a">Casado/a</option>
+
+    </select>
+    <label for="exampleInputEmail1">Nombre de casado/a (Opcional)</label>
+
+    <label for="exampleInputEmail1">Tiene Hijos?</label>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Masculino" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Si
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Femenino" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            No
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Numero de Hijos</label>
+        <input value="0" asp-for="Hijos" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Direccion">
+
+    </div>
+    <input type="submit" class="btn btn-primary" value="Continuar">
+</form>

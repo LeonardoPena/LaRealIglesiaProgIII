@@ -11,14 +11,16 @@ namespace EsteEs.AutoMapper
     {
         public Automapping()
         {
-            MapearIntegrantes();
+            MapearSl();
         }
 
-        public void MapearIntegrantes()
+        public void MapearSl()
         {
-            CreateMap<Integrantes, DetallesViewModel>().ReverseMap();
-           // .ForMember(dest => dest.Campo, opt => opt.Ignore())
-       // .ForMember(dest => dest.Campo, opt => opt.Ignore());
+            CreateMap<DatosEclesiasticos, DatosEclesiasticos>().ReverseMap().
+            ForMember(dest => dest.Id, opt => opt.Ignore())
+       .ForMember(dest => dest.IdIntegrante, opt => opt.Ignore());
         }
+
+
     }
 }

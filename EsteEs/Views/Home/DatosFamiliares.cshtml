@@ -21,9 +21,9 @@
 </div>
 
 
-<form method="post" asp-action="Index1">
+<form method="post" asp-action="DatosFamiliares">
 
-    <input value="@integrante_id" asp-for="IdIntegrante"/>
+    <input hidden value="@integrante_id" asp-for="IdIntegrante"/>
     <label for="exampleInputEmail1">Estado Civil</label>
     <select asp-for="EstadoCivil">
         <option value="Soltero/a">Soltero/a</option>
@@ -51,5 +51,5 @@
         <input value="0" asp-for="Hijos" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Direccion">
 
     </div>
-    <a asp-controller="Home" asp-action="Index1"><input type="submit" class="btn btn-primary" value="Continuar"></a>
+    <input type="submit" class="btn btn-primary" value="Continuar">
 </form>

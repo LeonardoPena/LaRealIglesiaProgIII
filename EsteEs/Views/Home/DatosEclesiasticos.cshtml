@@ -1,0 +1,262 @@
+﻿@model EsteEs.Models.DatosEclesiasticos
+@{
+    ViewData["Title"] = "Home Page";
+    int? integrante_id = ViewBag.id_integrante;
+}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Datos Laborales</title>
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form method="post" asp-action="DatosEclesiasticos">
+    <input hidden value="@integrante_id" asp-for="IdIntegrante" />
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Fecha de Conversion</label>
+        <input asp-for="FechaConversion" type="date" class="form-control" id="exampleInputPassword1" placeholder="Apellidos">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Fecha de Bautismo</label>
+        <input asp-for="FechaBautismo" type="date" class="form-control" id="exampleInputPassword1" placeholder="Apellidos">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Fecha Que Fue Aceptado</label>
+        <input asp-for="FechaAceptado" type="date" class="form-control" id="exampleInputPassword1" placeholder="Apellidos">
+    </div>
+
+
+    <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Denominacion a la que pertenece</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Bautista" checked>
+                <label class="form-check-label" for="gridRadios1">
+                    Bautista
+                </label>
+            </div>
+            <div class="form-check">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Pentecostal">
+                <label class="form-check-label" for="gridRadios2">
+                    Pentecostal
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Metodista">
+                <label class="form-check-label" for="gridRadios3">
+                    Metodista
+                </label>
+            </div>
+
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Catolica">
+                <label class="form-check-label" for="gridRadios3">
+                    Catolica
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Presbiteriana">
+                <label class="form-check-label" for="gridRadios3">
+                    Presbiteriana
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Presbiteriana">
+                <label class="form-check-label" for="gridRadios3">
+                    Presbiteriana
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Adventista">
+                <label class="form-check-label" for="gridRadios3">
+                    Adventista
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Templo Biblico">
+                <label class="form-check-label" for="gridRadios3">
+                    Templo Biblico
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Menonita">
+                <label class="form-check-label" for="gridRadios3">
+                    Menonita
+                </label>
+                <div class="form-check disabled">
+                    <input asp-for="Denominacion" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Luterana">
+                    <label class="form-check-label" for="gridRadios3">
+                        Luterana
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Otra...</label>
+        <input asp-for="Denominacion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre de la Iglesia que pertenecia</label>
+        <input asp-for="NombreIglesia" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre de la congregacion Anterior</label>
+        <input asp-for="CongregacionAnterior" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nombre del Pastor de la Iglesia</label>
+            <input asp-for="Pastor" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+
+        </div>
+    </div>
+
+
+    <label for="exampleInputEmail1">Usted Ha sido Disciplinado?</label>
+    <div class="form-check">
+        <input asp-for="Disciplinado" class="form-check-input" type="checkbox" value="Si" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Si
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Disciplinado" class="form-check-input" type="checkbox" value="No" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            No
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Cuantas veces?</label>
+        <input asp-for="DisciplinadoVeces" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Por que?</label>
+        <input asp-for="DisciplinadoCausas" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+
+    </div>
+
+
+    <label for="exampleInputEmail1">Funcion que ha empleado en la iglesia anterior</label>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Pastor" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Pastor
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Anciano" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Anciano
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Diacono" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Diacono
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Misionero" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Misionero
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider Esc. Dominical" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider Esc. Dominical
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider Minist. de Jovenes" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider Minist. de Jovenes
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider Minist. Caballeros" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider Minist. Caballeros
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider Minist. Damas" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider Minist. Damas
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider Minist. Niños" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider Minist. Niños
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider Minist. Caballeros" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider Minist. Caballeros
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Funciones" class="form-check-input" type="checkbox" value="Lider de Grupo Pequeño" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Lider de Grupo Pequeño
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ministerio al que asistio</label>
+        <input asp-for="Ministerios" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Su mayor Fruto en la congregacion anterior</label>
+        <input asp-for="MinisteriosMayorFruto" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Considerando sus	dones y talentos, ¿a qué ministerio cree usted que	Dios lo(a) está llamando?   </label>
+        <input asp-for="MinisteriosLlamado" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Que Metas tiene para su vida?</label>
+        <input asp-for="Metas" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+
+    </div>
+    <label class="form-check-label" for="defaultCheck1">
+        ¿Cuenta	con	el	respaldo	de	sus	autoridades	eclesiásticas	para	realizar	estos	estudios?
+    </label>
+    <div class="form-check">
+        <input asp-for="Respaldo" class="form-check-input" type="checkbox" value="Si" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Si
+        </label>
+    </div>
+    <div class="form-check">
+        <input asp-for="Respaldo" class="form-check-input" type="checkbox" value="No" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            No
+        </label>
+
+    </div>
+<input type="submit" class="btn btn-primary" value="Continuar">
+
+</form>

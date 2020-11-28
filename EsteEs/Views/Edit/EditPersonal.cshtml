@@ -25,7 +25,52 @@
 
 
 
-<form method="post" asp-action="EditPersonal">
+<form method="post" asp-action="EditPersonal" enctype="multipart/form-data">
+    <div class="preview text-center">
+        <img class="preview-img" id="file-preview" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200" />
+        <div class="browse-button">
+            <i class="fa fa-pencil-alt"></i>
+
+            <input value="@Model.Imagen" class="browse-input" name="Imagen" type="file"
+                   id="file-upload" accept="image/*" />
+        </div>
+        <div>
+            <label class="file-label"> Seleccionar foto de Perfil</label><br>
+
+        </div>
+    </div>
+    @*@Section Scripts{*@
+    <script>
+                    function readFile(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var filePreview = document.getElementById('file-preview');
+
+                                filePreview.src = e.target.result;
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                        } else {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var filePreview = document.getElementById('file-preview');
+                                filePreview.src = "~\\images\\userDefault.png";
+                            }
+                            try {
+                                reader.readAsDataURL(input.files[0]);
+                            } catch{
+                                var filePreview = document.getElementById('file-preview');
+                                var ruta = window.location.toString();
+                                var rutabien = ruta.substring(0, 23);
+                                filePreview.src = rutabien+"images/userDefault.png";
+                            }
+                        }
+                    }
+                    var fileUpload = document.getElementById('file-upload');
+                    fileUpload.onchange = function (e) {
+                        readFile(e.srcElement);
+                    }
+    </script>
     <label for="exampleInputEmail1">Sexo</label>
     <select asp-for="Sexo">
         <option value="Masculino">Masculino</option>
