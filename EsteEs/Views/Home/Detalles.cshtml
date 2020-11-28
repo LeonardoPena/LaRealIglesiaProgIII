@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EsteEs.ViewModels.DetallesViewModel
+<div class="border-card">
+    <div class="content-wrapper">
+        <div class="label-group">
+            <h3>Datos Personales</h3>
+            <p class="title">Sexo: @Html.DisplayFor(ModelItem => Model.integrante.Sexo)</p>
+        </div>
+        <div class="min-gap"></div>
+        <div class="label-group">
+            <p class="title">Nombre: @Html.DisplayFor(ModelItem => Model.integrante.Nombres)</p>
+
+        </div>
+        <div class="min-gap"></div>
+        <div class="label-group">
+            <p class="title">Apellido :@Html.DisplayFor(ModelItem => Model.integrante.Apellidos)</p>
+
+        </div>
+    </div>
+    <div class="min-gap"></div>
+    <div class="label-group">
+        <p class="title">Fecha de Nacimiento :@Html.DisplayFor(ModelItem => Model.integrante.FechaNacimiento)</p>
+    </div>
+</div>
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Pais de Nacimiento :@Html.DisplayFor(ModelItem => Model.integrante.PaisNacimiento)</p>
+</div>
+
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Cuidad de Nacimiento :@Html.DisplayFor(ModelItem => Model.integrante.CiudadNacimiento)</p>
+
+</div>
+
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Pais de Residencia Actual :@Html.DisplayFor(ModelItem => Model.integrante.PaisResidencia)</p>
+
+</div>
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Ciudad de Residencia Actual :@Html.DisplayFor(ModelItem => Model.integrante.CiudadResidencia)</p>
+
+</div>
+
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Telefono :@Html.DisplayFor(ModelItem => Model.integrante.Telefono)</p>
+
+</div>
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Direccion :@Html.DisplayFor(ModelItem => Model.integrante.Direccion)</p>
+
+</div><div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Celular :@Html.DisplayFor(ModelItem => Model.integrante.Celular)</p>
+
+</div>
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">correo electronico :@Html.DisplayFor(ModelItem => Model.integrante.Correo)</p>
+
+</div>
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Tipo de Documento de Identidad :@Html.DisplayFor(ModelItem => Model.integrante.TipoDocIdentidad)</p>
+
+</div>
+
+<div class="min-gap"></div>
+<div class="label-group">
+    <p class="title">Documento de identidad :@Html.DisplayFor(ModelItem => Model.integrante.DocIdentidad)</p>
+
+</div>
+
+
+<h3>Datos Familiares</h3>
+<div class="label-group">
+    <p class="title">Estado Civil : @Html.DisplayFor(ModelItem => Model.datofam.EstadoCivil)</p>
+
+</div>
+
+<div class="label-group">
+    <p class="title">Hijos : @Html.DisplayFor(ModelItem => Model.datofam.Hijos)</p>
+
+</div>
+
+<h3>Datos Laborales</h3>
+<div class="label-group">
+    <p class="title">Profesion : @Html.DisplayFor(ModelItem => Model.datolab.Profesion)</p>
+
+</div>
+
+<div class="label-group">
+    <p class="title">Nombre Empresa : @Html.DisplayFor(ModelItem => Model.datolab.NombreEmpresa)</p>
+
+</div>
+<div class="label-group">
+    <p class="title">Ocupacion : @Html.DisplayFor(ModelItem => Model.datolab.Ocupacion)</p>
+
+</div>
+
+<div class="label-group">
+    <p class="title">Telefono : @Html.DisplayFor(ModelItem => Model.datolab.Telefono)</p>
+
+</div>
+
+
+<h3>Datos Academicos</h3>
+<div class="label-group">
+    <p class="title">Nivel de Estudio : @Html.DisplayFor(ModelItem => Model.datoac.NivelEstudio)</p>
+
+</div>
+
+<div class="label-group">
+    <p class="title">Razones de Expulsion anteriores: @Html.DisplayFor(ModelItem => Model.datoac.Expulsado)</p>
+
+</div>
+
+<h3>Datos Eclesiasticos</h3>
+
+<div class="label-group">
+    <p class="title">Fecha de Conversion: @Html.DisplayFor(ModelItem => Model.datoecl.FechaConversion)</p>
+</div>
+
+<div class="label-group">
+    <p class="title">Fecha de Bautismo: @Html.DisplayFor(ModelItem => Model.datoecl.FechaBautismo)</p>
+</div>
+
+
+<div class="label-group">
+    <p class="title">Fecha en que	fue	aceptado(a)	formalmente	como miembro de la Iglesia: @Html.DisplayFor(ModelItem => Model.datoecl.FechaAceptado)</p>
+</div>
+
+<div class="label-group">
+    <p class="title">Denominacion a la que pertenece: @Html.DisplayFor(ModelItem => Model.datoecl.Denominacion)</p>
+</div>
+<div class="label-group">
+    <p class="title">Nombre de la iglesia a la que asiste actualmente: @Html.DisplayFor(ModelItem => Model.datoecl.NombreIglesia)</p>
+</div>
+<div class="label-group">
+    <p class="title">Congregacion anterior a esta: @Html.DisplayFor(ModelItem => Model.datoecl.CongregacionAnterior)</p>
+</div>
+<div class="label-group">
+    <p class="title">Nombre del pastor de su iglesia actual: @Html.DisplayFor(ModelItem => Model.datoecl.Pastor)</p>
+</div>
+<div class="label-group">
+    <p class="title">Numero de veces Disciplinado: @Html.DisplayFor(ModelItem => Model.datoecl.Disciplinado)</p>
+</div>
+<div class="label-group">
+    <p class="title">Causas de la disciplinacion: @Html.DisplayFor(ModelItem => Model.datoecl.DisciplinadoCausas)</p>
+</div>
+<div class="label-group">
+    <p class="title">Funcion que Ejerce actualmente: @Html.DisplayFor(ModelItem => Model.datoecl.Funciones)</p>
+</div>
+<div class="label-group">
+    <p class="title">Ministerios a los que ha servido: @Html.DisplayFor(ModelItem => Model.datoecl.Ministerios)</p>
+</div>
+<div class="label-group">
+    <p class="title">Ministerio donde tuvo mayor fruto: @Html.DisplayFor(ModelItem => Model.datoecl.MinisteriosMayorFruto)</p>
+</div>
+<div class="label-group">
+    <p class="title">A que ministerio cree que Dios lo llama @Html.DisplayFor(ModelItem => Model.datoecl.MinisteriosLlamado)</p>
+</div>
+<div class="label-group">
+    <p class="title">Metas en su vida: @Html.DisplayFor(ModelItem => Model.datoecl.Metas)</p>
+</div>
+
+<div class="label-group">
+    <p class="title">Cuenta Con Respaldo de sus autoridades Eclesiasticas: @Html.DisplayFor(ModelItem => Model.datoecl.Respaldo)</p>
+</div>

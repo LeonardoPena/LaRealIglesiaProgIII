@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+@{
+}
+@model  IEnumerable<EsteEs.Models.Integrantes>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nombre y Apellido</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo Electronico</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      
+        @{
+            foreach (var persona in Model)
+            {
+                <tr>
+                    <th scope="row">@persona.Nombres @persona.Apellidos</th>
+                    <td>@persona.Sexo</td>
+                    <td>@persona.Telefono</td>
+                    <td>@persona.Correo</td>
+                    <td>
+                        
+
+
+
+                        <div class="modal fade " id="borrar-@(persona.Id)" data-backdrop="static"
+                             data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog modal-sm">
+                                <div class="modal-content bg-danger shadow-sm p-1 rounded">
+                                    <div class="modal-header shadow p-1 rounded">
+                                        <h5 class="modal-title text-white font-weight-bolder" id="staticBackdropLabel" style="font-size:30px;">Editar</h5>
+                                        <button type="button" class=" btn btn-danger btn-sm text-white font-weight-bolder" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true" style="font-size:20px;"></i></button>
+                                    </div>
+
+                                    <div class="modal-body bg-light h6 text-justify">
+                                        Seleccione que datos quiere editar:
+
+                                        <div>
+                                            <hr />  <a asp-action="EditPersonal" asp-route-id="@persona.Id" >Datos Personales</a>  <hr />
+                                        </div>
+
+                                        <div>
+                                            <hr />  <a asp-action="EditEcl" asp-route-id="@persona.Id" >Datos Eclesiasticos</a>  <hr />
+                                        </div>
+                                        <div>
+                                            <hr />  <a asp-action="EditAcad" asp-route-id="@persona.Id" >Datos Academicos</a>  <hr />
+                                        </div>
+                                        <div>
+                                            <hr />  <a asp-action="EditFam" asp-route-id="@persona.Id" >Datos Familiares</a>  <hr />
+                                        </div>
+                                        <div>
+                                            <hr />  <a asp-action="EditLab" asp-route-id="@persona.Id" >Datos Laborales</a>  <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" style="margin-left:30px; color:red;" data-toggle="modal" data-target="#borrar-@(persona.Id)"><i class="fa fa-close"></i>Editar</a>
+                        <a asp-action="Eliminar" asp-route-id="@persona.Id"><button class="btn btn-danger">Eliminar</button></a>
+                        <a asp-action="Detalles" asp-route-id="@persona.Id">Detalles</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
