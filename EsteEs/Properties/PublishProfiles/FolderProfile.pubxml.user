@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Usuario\Desktop\WebSite</_PublishTargetUrl>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFHpgGZp6c0W9QKWW51u5zQAAAAACAAAAAAAQZgAAAAEAACAAAAAtm1Gozq9S+z99zH3e8hEKx2YWYjELH5U1F3cNWOh7qgAAAAAOgAAAAAIAACAAAACUrIfA8cK2kMTwL3iOcfTGA4pxFCxF/GqpqNIzqIyCGyAAAADetekaNtlH2yjOJi54DReBAWF6rO/qzBJp3yLtX7euR0AAAAAq9/zrItQAM9J8/usSjH1LWP6ogiqtAt4tEMPsvV1l8NfvNvTpYJVpfzLPkelWNIz/YuGLYfzpOT9+p5793Fkw</EncryptedPassword>
+  </PropertyGroup>
+</Project>

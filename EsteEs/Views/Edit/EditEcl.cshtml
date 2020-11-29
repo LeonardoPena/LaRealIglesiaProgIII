@@ -20,10 +20,9 @@
 </div>
 
 <form method="post" asp-action="EditEcl">
-    <input value="@Model.Id" asp-for="Id" />
-    <input asp-for="IdIntegrante" />
-    <input value="@Model.Id" asp-for="Id" />
-    <input asp-for="IdIntegrante" />
+    <input hidden value="@Model.Id" asp-for="Id" />
+    <input hidden asp-for="IdIntegrante" />
+  
     <div class="form-group">
         <label for="exampleInputPassword1">Fecha de Conversion</label>
         <input asp-for="FechaConversion" type="date" class="form-control" id="exampleInputPassword1" placeholder="Apellidos">
@@ -106,20 +105,20 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Otra...</label>
-        <input asp-for="Denominacion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+        <input asp-for="Denominacion" type="radio" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
 
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Nombre de la Iglesia que pertenecia</label>
-        <input asp-for="NombreIglesia" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+        <input asp-for="NombreIglesia" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre de la iglesia donde se enccontraba">
 
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Nombre de la congregacion Anterior</label>
-        <input asp-for="CongregacionAnterior" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+        <input asp-for="CongregacionAnterior" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Congregacion Anterior">
         <div class="form-group">
             <label for="exampleInputEmail1">Nombre del Pastor de la Iglesia</label>
-            <input asp-for="Pastor" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Otra">
+            <input asp-for="Pastor" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pastor de la iglesia donde estaba">
 
         </div>
     </div>
@@ -132,14 +131,14 @@
     </select>
     <div class="form-group">
         <label for="exampleInputEmail1">Cuantas veces?</label>
-        <input asp-for="DisciplinadoVeces" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <input asp-for="DisciplinadoVeces" value="0" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
 
     </div>
 
 
     <div class="form-group">
         <label for="exampleInputEmail1">Por que?</label>
-        <input asp-for="DisciplinadoCausas" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <input asp-for="DisciplinadoCausas" value="0" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
 
     </div>
 
@@ -214,13 +213,13 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Ministerio al que asistio</label>
-        <input asp-for="Ministerios" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <input asp-for="Ministerios" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del Ministerio">
 
     </div>
 
     <div class="form-group">
         <label for="exampleInputEmail1">Su mayor Fruto en la congregacion anterior</label>
-        <input asp-for="MinisteriosMayorFruto" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Telefono">
+        <input asp-for="MinisteriosMayorFruto" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mayor fruto en el ministerio donde estuvo...">
 
     </div>
 

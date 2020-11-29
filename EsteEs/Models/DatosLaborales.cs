@@ -7,6 +7,7 @@ namespace EsteEs.Models
     {
         public int Id { get; set; }
         public int IdIntegrante { get; set; }
+
         public string Profesion { get; set; }
         public string NombreEmpresa { get; set; }
         public string Ocupacion { get; set; }

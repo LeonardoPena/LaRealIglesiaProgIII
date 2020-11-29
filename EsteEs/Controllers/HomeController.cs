@@ -11,9 +11,11 @@ using EsteEs.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EsteEs.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -122,7 +124,7 @@ namespace EsteEs.Controllers
         }
         public ActionResult Lista()
         {
-
+            ViewData["Nombre"] = User.Identity.Name;
             var lista = dbcontext.Integrantes.ToList();
             return View(lista);
         }

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EsteEs.AutoMapper;
 using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 
 namespace EsteEs
 {
@@ -28,7 +29,20 @@ namespace EsteEs
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Automapping).GetTypeInfo().Assembly);
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+                options.Password = new PasswordOptions
+                {
+                    RequireDigit = true,
+                    RequiredLength = 3,
+                    RequireUppercase = false,
+                    RequireLowercase = false,
+                    RequireNonAlphanumeric = false
+                };
+            }
+            ).AddEntityFrameworkStores<IglesiaDBContext>().AddDefaultTokenProviders();
+            services.AddControllersWithViews();
+
+services.AddAutoMapper(typeof(Automapping).GetTypeInfo().Assembly);
 
             services.AddDbContext<IglesiaDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddControllersWithViews();
@@ -51,14 +65,15 @@ namespace EsteEs
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Lista}/{id?}");
+                    pattern: "{controller=Account}/{action=Index}/{id?}");
             });
         }
     }

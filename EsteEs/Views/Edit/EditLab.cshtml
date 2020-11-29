@@ -22,8 +22,8 @@
 
 
 <form method="post" asp-action="EditLab">
-    <input value="@Model.Id" asp-for="Id" />
-    <input asp-for="IdIntegrante" />
+    <input hidden value="@Model.Id" asp-for="Id" />
+    <input hidden asp-for="IdIntegrante" />
     <div class="form-group">
         <label for="exampleInputEmail1">Profesion</label>
         <input asp-for="Profesion" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Profesion">

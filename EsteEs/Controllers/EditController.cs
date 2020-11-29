@@ -12,9 +12,11 @@ using System.Text;
 using EsteEs.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EsteEs.Controllers
 {
+    
     public class EditController : Controller
     {
 

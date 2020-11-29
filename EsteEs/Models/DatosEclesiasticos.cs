@@ -7,6 +7,7 @@ namespace EsteEs.Models
     {
         public int Id { get; set; }
         public int IdIntegrante { get; set; }
+
         public DateTime? FechaConversion { get; set; }
         public DateTime? FechaBautismo { get; set; }
         public DateTime? FechaAceptado { get; set; }

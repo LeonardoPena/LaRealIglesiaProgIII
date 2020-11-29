@@ -100,4 +100,6 @@ C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Home\DatosPersonales.cshtml.g.cs
 C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Home\Detalles.cshtml.g.cs
 C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lista.cshtml.g.cs
-C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Account\Registro.cshtml.g.cs
+C:\Users\Usuario\source\repos\EsteEs\EsteEs\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutUnLogged.cshtml.g.cs
